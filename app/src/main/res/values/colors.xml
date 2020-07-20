@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#48B57C</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#48B57C</color>
+
+
+    <color name="colorBgCategoryRow">#FADAAD</color>
+    <color name="colorBgCategoryRowDivider">#F7C783</color>
+    <color name="colorSearchFilter">#E7E7E7</color>
+</resources>

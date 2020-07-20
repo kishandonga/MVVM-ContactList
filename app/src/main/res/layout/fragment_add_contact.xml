@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mvvm.contactlist.viewmodel.ContactViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/civProfileImage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="50dp"
+                android:onClick="@{() -> viewModel.onProfilePicSelect()}"
+                app:civ_border_color="@color/colorAccent"
+                app:civ_border_width="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:set_place_holder_pic="@{viewModel.getPlaceHolderPic()}"
+                app:set_profile_pic="@{viewModel.getProfilePic()}"
+                tools:src="@drawable/ic_place_holder" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edFirstName"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ic_bg_ed"
+                android:digits="@string/validation_alphabat_digits"
+                android:hint="@string/lbl_first_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@={viewModel.getFirstName()}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/civProfileImage" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edLastName"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ic_bg_ed"
+                android:digits="@string/validation_alphabat_digits"
+                android:hint="@string/lbl_last_name"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@={viewModel.getLastName()}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edFirstName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edMobileNum"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ic_bg_ed"
+                android:digits="1234567890"
+                android:hint="@string/lbl_mobile_number"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@={viewModel.getMobileNum()}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edLastName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edEmail"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ic_bg_ed"
+                android:hint="@string/lbl_email"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@={viewModel.getEmail()}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edMobileNum" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spCategory"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/ic_bg_ed"
+                android:entries="@array/sample_array"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edEmail"
+                app:onItemSelected="@{viewModel}"
+                app:set_default_value="@{viewModel.getCategoryDefaultValue()}" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
+                android:background="@color/colorAccent"
+                android:onClick="@{() -> viewModel.onSaveClick()}"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spCategory"
+                app:set_text="@{viewModel.getBtnText()}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

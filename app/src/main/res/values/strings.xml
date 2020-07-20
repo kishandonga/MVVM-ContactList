@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Contact List</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_filter">Filter</string>
+    <string name="action_search">Search</string>
+
+    <string name="menu_add_category">Add Category</string>
+    <string name="menu_add_contact">Add Contact</string>
+    <string name="menu_contact_list">Contact List</string>
+    <string name="lbl_add_category">Add Category</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_update">Update</string>
+    <string name="error_msg_enter_category">Please Enter Category</string>
+    <string name="lbl_category_added">Category Added</string>
+    <string name="lbl_category_deleted">Category Deleted</string>
+    <string name="lbl_contact_deleted">Contact Deleted</string>
+    <string name="lbl_category_updated">Category Updated</string>
+    <string name="lbl_something_wrong">There is something wrong, Please try again after sometime</string>
+    <string name="lbl_first_name">First Name</string>
+    <string name="lbl_last_name">Last Name</string>
+    <string name="lbl_mobile_number">Mobile Number</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_select_category">Select Category</string>
+    <string name="err_msg_select_profile_pic">Please select profile Picture from gallery or camera</string>
+    <string name="err_msg_first_name">Please enter first name</string>
+    <string name="err_msg_last_name">Please enter last name</string>
+    <string name="err_msg_mobile_num">Please enter mobile number</string>
+    <string name="err_msg_email">Please enter email</string>
+    <string name="err_msg_email_valid">Please enter valid email</string>
+    <string name="err_msg_select_ctg">Please select category</string>
+    <string name="succ_msg_contact_added">Contact added in the book</string>
+    <string name="validation_alphabat_digits">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvxyz</string>
+    <string name="lbl_enter_text">Enter Text</string>
+
+    <string-array name="sample_array">
+        <item>Category 1</item>
+        <item>Category 2</item>
+        <item>Category 3</item>
+        <item>Category 4</item>
+    </string-array>
+</resources>
