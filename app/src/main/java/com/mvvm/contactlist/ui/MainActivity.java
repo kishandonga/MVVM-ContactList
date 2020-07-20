@@ -27,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         setSupportActionBar(binding.toolbar);
 
-        //TODO: remove deprecated method
         mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_add_category, R.id.nav_add_contact, R.id.nav_contact_list)
-                .setDrawerLayout(binding.drawerLayout)
+                .setOpenableLayout(binding.drawerLayout)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
