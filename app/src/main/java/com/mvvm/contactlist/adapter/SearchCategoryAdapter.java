@@ -14,7 +14,7 @@ import com.mvvm.contactlist.viewmodel.ContactListViewModel;
 
 public class SearchCategoryAdapter extends ListAdapter<CategoryEntity, SearchCategoryAdapter.CategoryListViewHolder> {
 
-    private ContactListViewModel viewModel;
+    private final ContactListViewModel viewModel;
 
     /**
      * @param diffCallback DiffUtil.ItemCallback<CategoryEntity> CategoryEntity model comparison
@@ -51,7 +51,7 @@ public class SearchCategoryAdapter extends ListAdapter<CategoryEntity, SearchCat
 
     static class CategoryListViewHolder extends RecyclerView.ViewHolder {
 
-        private ListRowSearchCategoryBinding binding;
+        private final ListRowSearchCategoryBinding binding;
 
         /**
          * @param itemView ListRowSearchCategoryBinding list_row_search_category

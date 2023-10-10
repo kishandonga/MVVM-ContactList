@@ -14,7 +14,7 @@ import com.mvvm.contactlist.viewmodel.ContactListViewModel;
 
 public class ContactListAdapter extends ListAdapter<ContactEntity, ContactListAdapter.ContactListViewHolder> {
 
-    private ContactListViewModel viewModel;
+    private final ContactListViewModel viewModel;
 
     /**
      * @param diffCallback DiffUtil.ItemCallback<ContactEntity> ContactEntity comparison
@@ -51,7 +51,7 @@ public class ContactListAdapter extends ListAdapter<ContactEntity, ContactListAd
 
     static class ContactListViewHolder extends RecyclerView.ViewHolder {
 
-        private ListRowContactBinding binding;
+        private final ListRowContactBinding binding;
 
         /**
          * @param itemView ListRowContactBinding list_row_contact

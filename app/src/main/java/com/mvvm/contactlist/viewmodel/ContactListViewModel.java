@@ -24,12 +24,12 @@ import io.reactivex.schedulers.Schedulers;
 public class ContactListViewModel extends ViewModel {
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
-    private SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
-    private MutableLiveData<String> searchText = new MutableLiveData<>();
-    private SingleLiveEvent<Integer> toUpdateContact = new SingleLiveEvent<>();
-    private ContactListAdapter contactListAdapter;
-    private SearchCategoryAdapter searchCategoryAdapter;
-    private ContactRepository repository;
+    private final SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
+    private final MutableLiveData<String> searchText = new MutableLiveData<>();
+    private final SingleLiveEvent<Integer> toUpdateContact = new SingleLiveEvent<>();
+    private final ContactListAdapter contactListAdapter;
+    private final SearchCategoryAdapter searchCategoryAdapter;
+    private final ContactRepository repository;
     private List<ContactEntity> contactEntities = new ArrayList<>();
 
     /**
@@ -140,9 +140,9 @@ public class ContactListViewModel extends ViewModel {
         mDisposable.clear();
     }
 
-    public static class ContactListViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+    public static class ContactListViewModelFactory implements ViewModelProvider.Factory {
 
-        private ContactRepository repository;
+        private final ContactRepository repository;
 
         public ContactListViewModelFactory(ContactRepository repository) {
             this.repository = repository;

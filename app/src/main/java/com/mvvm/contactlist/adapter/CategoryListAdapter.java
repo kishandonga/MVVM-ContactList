@@ -14,7 +14,7 @@ import com.mvvm.contactlist.viewmodel.CategoryViewModel;
 
 public class CategoryListAdapter extends ListAdapter<CategoryEntity, CategoryListAdapter.CategoryListViewHolder> {
 
-    private CategoryViewModel viewModel;
+    private final CategoryViewModel viewModel;
 
     /**
      * @param diffCallback DiffUtil.ItemCallback<CategoryEntity> CategoryEntity model comparison
@@ -51,7 +51,7 @@ public class CategoryListAdapter extends ListAdapter<CategoryEntity, CategoryLis
 
     static class CategoryListViewHolder extends RecyclerView.ViewHolder {
 
-        private ListRowCategoryBinding binding;
+        private final ListRowCategoryBinding binding;
 
         /**
          * @param itemView ListRowCategoryBinding lis_row_category

@@ -28,21 +28,21 @@ import io.reactivex.schedulers.Schedulers;
 public class ContactViewModel extends ViewModel {
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
-    private SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
-    private SingleLiveEvent<Boolean> progressDialog = new SingleLiveEvent<>();
-    private SingleLiveEvent<Void> selectImage = new SingleLiveEvent<>();
-    private SingleLiveEvent<Void> toContactList = new SingleLiveEvent<>();
-    private SingleLiveEvent<ContactEntity> addContact = new SingleLiveEvent<>();
+    private final SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
+    private final SingleLiveEvent<Boolean> progressDialog = new SingleLiveEvent<>();
+    private final SingleLiveEvent<Void> selectImage = new SingleLiveEvent<>();
+    private final SingleLiveEvent<Void> toContactList = new SingleLiveEvent<>();
+    private final SingleLiveEvent<ContactEntity> addContact = new SingleLiveEvent<>();
 
-    private MutableLiveData<File> profilePic = new MutableLiveData<>();
-    private MutableLiveData<Integer> placeHolderPic = new MutableLiveData<>();
-    private MutableLiveData<String> firstName = new MutableLiveData<>();
-    private MutableLiveData<String> lastName = new MutableLiveData<>();
-    private MutableLiveData<String> mobileNum = new MutableLiveData<>();
-    private MutableLiveData<String> email = new MutableLiveData<>();
-    private MutableLiveData<Integer> btnText = new MutableLiveData<>();
-    private MutableLiveData<Integer> categoryDefaultValue = new MutableLiveData<>();
-    private ContactRepository repository;
+    private final MutableLiveData<File> profilePic = new MutableLiveData<>();
+    private final MutableLiveData<Integer> placeHolderPic = new MutableLiveData<>();
+    private final MutableLiveData<String> firstName = new MutableLiveData<>();
+    private final MutableLiveData<String> lastName = new MutableLiveData<>();
+    private final MutableLiveData<String> mobileNum = new MutableLiveData<>();
+    private final MutableLiveData<String> email = new MutableLiveData<>();
+    private final MutableLiveData<Integer> btnText = new MutableLiveData<>();
+    private final MutableLiveData<Integer> categoryDefaultValue = new MutableLiveData<>();
+    private final ContactRepository repository;
     private int selectedCategoryId = 0;
     private int contactId = 0;
 
@@ -306,9 +306,9 @@ public class ContactViewModel extends ViewModel {
         mDisposable.clear();
     }
 
-    public static class ContactViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+    public static class ContactViewModelFactory implements ViewModelProvider.Factory {
 
-        private ContactRepository repository;
+        private final ContactRepository repository;
 
         public ContactViewModelFactory(ContactRepository repository) {
             this.repository = repository;

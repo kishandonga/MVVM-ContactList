@@ -15,8 +15,8 @@ import io.reactivex.Single;
 public class ContactRepository {
 
     private static ContactRepository repository;
-    private CategoryDao categoryDao;
-    private ContactDao contactDao;
+    private final CategoryDao categoryDao;
+    private final ContactDao contactDao;
 
     private ContactRepository(CategoryDao categoryDao, ContactDao contactDao) {
         this.categoryDao = categoryDao;

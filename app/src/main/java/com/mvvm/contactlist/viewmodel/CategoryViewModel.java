@@ -19,10 +19,10 @@ import io.reactivex.schedulers.Schedulers;
 public class CategoryViewModel extends ViewModel {
 
     private final CompositeDisposable mDisposable = new CompositeDisposable();
-    private CategoryRepository repository;
-    private MutableLiveData<String> edCategory = new MutableLiveData<>();
-    private SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
-    private CategoryListAdapter categoryListAdapter;
+    private final CategoryRepository repository;
+    private final MutableLiveData<String> edCategory = new MutableLiveData<>();
+    private final SingleLiveEvent<Integer> errorSuccMessage = new SingleLiveEvent<>();
+    private final CategoryListAdapter categoryListAdapter;
 
     /**
      * @param repository CategoryRepository category dao provider
@@ -124,9 +124,9 @@ public class CategoryViewModel extends ViewModel {
         mDisposable.clear();
     }
 
-    public static class AddCategoryViewModelFactory extends ViewModelProvider.NewInstanceFactory {
+    public static class AddCategoryViewModelFactory implements ViewModelProvider.Factory {
 
-        private CategoryRepository repository;
+        private final CategoryRepository repository;
 
         public AddCategoryViewModelFactory(CategoryRepository repository) {
             this.repository = repository;

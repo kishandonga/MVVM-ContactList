@@ -11,7 +11,7 @@ import io.reactivex.Flowable;
 public class CategoryRepository {
 
     private static CategoryRepository repository;
-    private CategoryDao categoryDao;
+    private final CategoryDao categoryDao;
 
     private CategoryRepository(CategoryDao categoryDao) {
         this.categoryDao = categoryDao;
