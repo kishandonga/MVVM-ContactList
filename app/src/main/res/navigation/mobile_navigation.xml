@@ -9,7 +9,14 @@
         android:id="@+id/nav_add_category"
         android:name="com.mvvm.contactlist.fragments.AddCategoryFragment"
         android:label="@string/menu_add_category"
-        tools:layout="@layout/fragment_add_category" />
+        tools:layout="@layout/fragment_add_category">
+        <action
+            android:id="@+id/action_nav_add_category_to_nav_add_contact"
+            app:destination="@id/nav_add_contact" />
+        <action
+            android:id="@+id/action_nav_add_category_to_nav_contact_list"
+            app:destination="@id/nav_contact_list" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_add_contact"
