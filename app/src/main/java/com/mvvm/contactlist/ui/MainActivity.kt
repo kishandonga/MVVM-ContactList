@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.mvvm.contactlist.R
 import com.mvvm.contactlist.databinding.ActivityMainBinding
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
                 binding.drawerLayout.closeDrawer(GravityCompat.START)
             } else {
-                if (!onSupportNavigateUp()) {
+                if (!navController.popBackStack()) {
                     finish()
                 }
             }
@@ -42,9 +43,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun initView() {
         setSupportActionBar(binding.toolbar)
+
+        binding.navigationView.setupWithNavController(navController)
         mAppBarConfiguration = AppBarConfiguration(navController.graph, binding.drawerLayout)
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration)
-        NavigationUI.setupWithNavController(binding.navigationView, navController)
 
         binding.navigationView.setNavigationItemSelectedListener(this)
     }
@@ -58,8 +60,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.drawer_nav_add_contact -> navController.navigate(R.id.action_nav_add_category_to_nav_add_contact)
-            R.id.drawer_nav_contact_list -> navController.navigate(R.id.action_nav_add_category_to_nav_contact_list)
+            R.id.drawer_nav_add_contact -> navController.navigate(R.id.action_nav_contact_list_to_nav_add_contact)
+            R.id.drawer_nav_category_list -> navController.navigate(R.id.action_nav_contact_list_to_nav_add_category)
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
         return true

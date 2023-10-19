@@ -67,9 +67,34 @@ class ContactViewModel private constructor(private val repository: ContactReposi
                         model.profilePic?.apply {
                             profilePic.value = File(this)
                         }
-                        categoryDefaultValue.setValue(model.categoryId)
+                        setUpCategory(model.categoryId)
                     }
                 ) { _: Throwable? -> errorSuccMessage.setValue(R.string.lbl_something_wrong) })
+    }
+
+    private fun setUpCategory(categoryId: Int) {
+        mDisposable.add(
+            repository.allCategoryName
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ categoryNameList ->
+                    mDisposable.add(
+                        repository.category
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe {
+                                val category =
+                                    it.find { t -> t.categoryId == categoryId }
+                                category?.categoryName?.apply {
+                                    val index = categoryNameList.indexOf(this)
+                                    categoryDefaultValue.setValue(index + 1)
+                                }
+                            }
+                    )
+                }, { _: Throwable? ->
+                    errorSuccMessage.setValue(R.string.lbl_something_wrong)
+                })
+        )
     }
 
     fun addDisposable(disposable: Disposable) {

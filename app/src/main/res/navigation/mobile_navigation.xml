@@ -3,20 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_add_category">
+    app:startDestination="@+id/nav_contact_list">
 
     <fragment
         android:id="@+id/nav_add_category"
         android:name="com.mvvm.contactlist.fragments.AddCategoryFragment"
         android:label="@string/menu_add_category"
-        tools:layout="@layout/fragment_add_category">
-        <action
-            android:id="@+id/action_nav_add_category_to_nav_add_contact"
-            app:destination="@id/nav_add_contact" />
-        <action
-            android:id="@+id/action_nav_add_category_to_nav_contact_list"
-            app:destination="@id/nav_contact_list" />
-    </fragment>
+        tools:layout="@layout/fragment_add_category" />
 
     <fragment
         android:id="@+id/nav_add_contact"
@@ -28,6 +21,13 @@
         android:id="@+id/nav_contact_list"
         android:name="com.mvvm.contactlist.fragments.ContactListFragment"
         android:label="@string/menu_contact_list"
-        tools:layout="@layout/fragment_contact_list" />
+        tools:layout="@layout/fragment_contact_list">
+        <action
+            android:id="@+id/action_nav_contact_list_to_nav_add_contact"
+            app:destination="@id/nav_add_contact" />
+        <action
+            android:id="@+id/action_nav_contact_list_to_nav_add_category"
+            app:destination="@id/nav_add_category" />
+    </fragment>
 
 </navigation>
