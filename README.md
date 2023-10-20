@@ -4,7 +4,7 @@ This is demonstration of the MVVM architecture with Java, Kotlin and RxJava2 als
 
 
 <div align:left;display:inline;>
-<video width="360" height="800" controls>
-    <source src="https://github.com/kishandonga/MVVM-ContactList/blob/kotlin/images/demo.mp4" type="video/mp4">
+<video width="360" height="800" src="https://github.com/kishandonga/MVVM-ContactList/blob/kotlin/images/demo.mp4" controls>
+<!--     <source src="https://github.com/kishandonga/MVVM-ContactList/blob/kotlin/images/demo.mp4" type="video/mp4"> -->
 </video>
 </div>
