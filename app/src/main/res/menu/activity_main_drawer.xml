@@ -5,14 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_add_category"
-            android:title="@string/menu_add_category" />
-        <item
-            android:id="@+id/nav_add_contact"
+            android:id="@+id/drawer_nav_add_contact"
             android:title="@string/menu_add_contact" />
         <item
-            android:id="@+id/nav_contact_list"
-            android:title="@string/menu_contact_list" />
+            android:id="@+id/drawer_nav_category_list"
+            android:title="@string/menu_add_category" />
     </group>
 
 </menu>
